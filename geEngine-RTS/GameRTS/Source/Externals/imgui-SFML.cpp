@@ -1,4 +1,4 @@
-#include "imgui-SFML.h"
+#include <imgui-SFML.h>
 #include <imgui.h>
 
 #include <SFML/OpenGL.hpp>
@@ -170,7 +170,10 @@ namespace ImGui
       io.KeyMap[ImGuiKey_Z] = sf::Keyboard::Z;
 
       // init rendering
-      io.DisplaySize = static_cast<sf::Vector2f>(target.getSize());
+      sf::Vector2f tmpVec = static_cast<sf::Vector2f>(target.getSize());
+
+      io.DisplaySize.x = tmpVec.x;
+      io.DisplaySize.y = tmpVec.y;
       io.RenderDrawListsFn = RenderDrawLists; // set render callback
 
       if (s_fontTexture) { // delete previously created texture
@@ -272,11 +275,13 @@ namespace ImGui
     void Update(const sf::Vector2i& mousePos, const sf::Vector2f& displaySize, float dt)
     {
       ImGuiIO& io = ImGui::GetIO();
-      io.DisplaySize = displaySize;
+      io.DisplaySize.x = displaySize.x;
+      io.DisplaySize.y = displaySize.y;
       io.DeltaTime = dt;
 
       if (s_windowHasFocus) {
-        io.MousePos = mousePos;
+        io.MousePos.x = mousePos.x;
+        io.MousePos.y = mousePos.y;
         for (unsigned int i = 0; i < 3; i++) {
           io.MouseDown[i] = s_touchDown[i] || sf::Touch::isDown(i) || s_mousePressed[i] || sf::Mouse::isButtonPressed((sf::Mouse::Button)i);
           s_mousePressed[i] = false;
@@ -359,7 +364,7 @@ namespace ImGui
   void Image(const sf::Texture& texture, const sf::Vector2f& size,
     const sf::Color& tintColor, const sf::Color& borderColor)
   {
-    ImGui::Image((void*)((size_t)texture.getNativeHandle()), size, ImVec2(0, 0), ImVec2(1, 1), tintColor, borderColor);
+    ImGui::Image((void*)((size_t)texture.getNativeHandle()), ImVec2(size.x, size.x), ImVec2(0, 0), ImVec2(1, 1), ImVec4(tintColor.r, tintColor.g, tintColor.b, tintColor.a), ImVec4(borderColor.r, borderColor.g, borderColor.b, borderColor.a));
   }
 
   void Image(const sf::Texture& texture, const sf::FloatRect& textureRect,
@@ -375,7 +380,7 @@ namespace ImGui
     ImVec2 uv0(textureRect.left / textureSize.x, textureRect.top / textureSize.y);
     ImVec2 uv1((textureRect.left + textureRect.width) / textureSize.x,
       (textureRect.top + textureRect.height) / textureSize.y);
-    ImGui::Image((void*)((size_t)texture.getNativeHandle()), size, uv0, uv1, tintColor, borderColor);
+    ImGui::Image((void*)((size_t)texture.getNativeHandle()), ImVec2(size.x, size.y), uv0, uv1, ImVec4(tintColor.r, tintColor.g, tintColor.b, tintColor.a), ImVec4(borderColor.r, borderColor.g, borderColor.b, borderColor.a));
   }
 
   void Image(const sf::Sprite& sprite,
@@ -431,8 +436,9 @@ namespace ImGui
     float thickness)
   {
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
-    sf::Vector2f pos = ImGui::GetCursorScreenPos();
-    draw_list->AddLine(a + pos, b + pos, ColorConvertFloat4ToU32(color), thickness);
+    ImVec2 pos = ImGui::GetCursorScreenPos();
+    draw_list->AddLine(ImVec2(a.x + pos.x, a.y + pos.y), ImVec2(b.x + pos.x, b.y + pos.y),
+                       ColorConvertFloat4ToU32(ImVec4(color.r, color.g, color.b, color.a)), thickness);
   }
 
   void DrawRect(const sf::FloatRect& rect, const sf::Color& color,
@@ -442,7 +448,7 @@ namespace ImGui
     draw_list->AddRect(
       getTopLeftAbsolute(rect),
       getDownRightAbsolute(rect),
-      ColorConvertFloat4ToU32(color), rounding, rounding_corners, thickness);
+      ColorConvertFloat4ToU32(ImVec4(color.r, color.g, color.b, color.a)), rounding, rounding_corners, thickness);
   }
 
   void DrawRectFilled(const sf::FloatRect& rect, const sf::Color& color,
@@ -452,7 +458,7 @@ namespace ImGui
     draw_list->AddRectFilled(
       getTopLeftAbsolute(rect),
       getDownRightAbsolute(rect),
-      ColorConvertFloat4ToU32(color), rounding, rounding_corners);
+      ColorConvertFloat4ToU32(ImVec4(color.r, color.g, color.b, color.a)), rounding, rounding_corners);
   }
 
 } // end of namespace ImGui
@@ -570,7 +576,7 @@ namespace
     ImVec2 uv1((textureRect.left + textureRect.width) / textureSize.x,
       (textureRect.top + textureRect.height) / textureSize.y);
 
-    return ImGui::ImageButton((void*)((size_t)texture.getNativeHandle()), size, uv0, uv1, framePadding, bgColor, tintColor);
+    return ImGui::ImageButton((void*)((size_t)texture.getNativeHandle()), ImVec2(size.x, size.y), uv0, uv1, framePadding, ImVec4(bgColor.r, bgColor.g, bgColor.b, bgColor.a), ImVec4(tintColor.r, tintColor.g, tintColor.b, tintColor.a));
   }
 
 } // end of anonymous namespace

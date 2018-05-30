@@ -24,6 +24,8 @@ RTSWorld::init(sf::RenderTarget* pTarget) {
   GE_ASSERT(m_pTiledMap);
   m_pTiledMap->init(m_pTarget, Vector2I(256, 256));
 
+  //m_pTiledMap->setType(5, 5, TERRAIN_TYPE::kWater);
+
   //Create the path finding classes and push them to the walker list
   //m_walkersList.push_back(ge_new<RTSBreadthFirstSearchMapGridWalker>(m_pTiledMap));
 

@@ -12,6 +12,15 @@
     <Filter Include="Source Files\Externals">
       <UniqueIdentifier>{05cba2b1-52b3-405c-9866-b29fae8fd3fd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\GameLogicFiles">
+      <UniqueIdentifier>{f04d3542-1403-4c28-84ca-1d21f70fa6b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameLogicFiles\Unit States">
+      <UniqueIdentifier>{44dfbcae-a007-47bf-a577-b7fe18fec0cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameLogicFiles\Unit clases">
+      <UniqueIdentifier>{f6f1052d-45f9-4d68-9bab-f425225873d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Externals\imgui.cpp">
@@ -47,6 +56,24 @@
     <ClCompile Include="Source\RTSWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\GameLogicFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitState.cpp">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Source Files\GameLogicFiles\Unit clases</Filter>
+    </ClCompile>
+    <ClCompile Include="MOV.cpp">
+      <Filter>Source Files\GameLogicFiles\Unit clases</Filter>
+    </ClCompile>
+    <ClCompile Include="Building.cpp">
+      <Filter>Source Files\GameLogicFiles\Unit clases</Filter>
+    </ClCompile>
+    <ClCompile Include="IdleState.cpp">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\RTSUnitType.h">
@@ -66,6 +93,24 @@
     </ClInclude>
     <ClInclude Include="Include\RTSWorld.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Source Files\GameLogicFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitState.h">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Source Files\GameLogicFiles\Unit clases</Filter>
+    </ClInclude>
+    <ClInclude Include="MOV.h">
+      <Filter>Source Files\GameLogicFiles\Unit clases</Filter>
+    </ClInclude>
+    <ClInclude Include="Building.h">
+      <Filter>Source Files\GameLogicFiles\Unit clases</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleState.h">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
