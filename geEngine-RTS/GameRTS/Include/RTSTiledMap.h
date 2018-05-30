@@ -161,6 +161,12 @@ class RTSTiledMap
                        int32 &scrX,
                        int32 &scrY);
 
+  void
+  writeMapGridToFile(FileDataStream& file);
+
+  void
+  readMapGridFromFile(FileDataStream& file);
+
  private:
   Vector2I m_mapSize;
   Vector<MapTile> m_mapGrid;

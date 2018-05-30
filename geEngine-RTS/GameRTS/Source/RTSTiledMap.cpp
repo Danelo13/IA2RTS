@@ -151,6 +151,30 @@ RTSTiledMap::getMapToScreenCoords(const int32 mapX,
 #endif
 }
 
+#include <geDataStream.h>
+
+void RTSTiledMap::writeMapGridToFile(FileDataStream & file) {
+  Vector2I mapSize = getMapSize();
+  uint32 dataSize = static_cast<uint32>(sizeof(MapTile) * m_mapGrid.size());
+
+  file.write(&mapSize, sizeof(mapSize));
+  file.write(&dataSize, sizeof(dataSize));
+  file.write(&m_mapGrid[0], static_cast<SIZE_T>(dataSize));
+}
+
+void RTSTiledMap::readMapGridFromFile(FileDataStream & file) {
+  Vector2I mapSize;
+  uint32 dataSize;
+
+  file >> mapSize;
+  file >> dataSize;
+
+  m_mapGrid.resize(static_cast<SIZE_T>(dataSize) / sizeof(MapTile));
+  file.read(&m_mapGrid[0], static_cast<SIZE_T>(dataSize));
+
+  m_mapSize = mapSize;
+}
+
 void
 RTSTiledMap::update(float deltaTime) {
   GE_UNREFERENCED_PARAMETER(deltaTime);
@@ -260,7 +284,7 @@ RTSTiledMap::render() {
 }
 
 RTSTiledMap::MapTile::MapTile() {
-  m_idType = 1;
+  m_idType = TERRAIN_TYPE::kWater;
   m_cost = 1;
 }
 
