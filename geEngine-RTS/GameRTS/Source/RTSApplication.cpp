@@ -11,6 +11,7 @@
 #include <geCrashHandler.h>
 #include <geDynLibManager.h>
 #include <geFileSystem.h>
+#include <geDataStream.h>
 #include <geTime.h>
 #include <geUnicode.h>
 
@@ -276,12 +277,20 @@ loadMapFromFile(RTSApplication* pApp) {
   }
 }
 
+ImVec4 MyColor = ImVec4(0.f, 0.f, 1.f, 1.f);
+bool g_EditorOpen = false;
+
 void
 mainMenu(RTSApplication* pApp) {
   if (ImGui::BeginMainMenuBar()) {
     if (ImGui::BeginMenu("Map")) {
       if (ImGui::MenuItem("Load...", "CTRL+O")) {
-        loadMapFromFile(pApp);
+        //loadMapFromFile(pApp);
+
+        geEngineSDK::FileDataStream fds("Mapa.map", ACCESS_MODE::kREAD);
+        pApp->getWorld()->getTiledMap()->readMapGridFromFile(fds);
+        fds.close();
+
       }
       if (ImGui::MenuItem("Save...", "CTRL+S")) {
 
@@ -291,6 +300,18 @@ mainMenu(RTSApplication* pApp) {
       if (ImGui::MenuItem("Quit", "CTRL+Q")) {
         pApp->getRenderWindow()->close();
       }
+
+      ImGui::EndMenu();
+    }
+    
+    if (ImGui::BeginMenu("Edit")) {
+
+      if (ImGui::MenuItem("Copy", "CTRL+C", nullptr, false)) {
+        
+      }
+      ImGui::Separator();
+      ImGui::Separator();
+      ImGui::Separator();
 
       ImGui::EndMenu();
     }
@@ -312,7 +333,24 @@ mainMenu(RTSApplication* pApp) {
       10240.0f);
 
     ImGui::Checkbox("Show grid", &GameOptions::s_MapShowGrid);
+
+    if (ImGui::Button("Abrir ventana de edicion...")) {
+      g_EditorOpen = !g_EditorOpen;
+    }
+
   }
   ImGui::End();
 
+  if (g_EditorOpen) {
+    ImGui::Begin("Testing Window", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
+    {
+      if (ImGui::Button("Mi Boton magico")) {
+
+        geEngineSDK::FileDataStream fds("Mapa.map", ACCESS_MODE::kWRITE);
+        pApp->getWorld()->getTiledMap()->writeMapGridToFile(fds);
+        fds.close();
+      }
+    }
+    ImGui::End();
+  }
 }
