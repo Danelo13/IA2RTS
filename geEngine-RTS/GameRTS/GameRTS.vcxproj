@@ -197,6 +197,7 @@
     <ClInclude Include="Include\RTSUnitType.h" />
     <ClInclude Include="Include\RTSWorld.h" />
     <ClInclude Include="MOV.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="UnitState.h" />
   </ItemGroup>

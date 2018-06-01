@@ -112,5 +112,8 @@
     <ClInclude Include="IdleState.h">
       <Filter>Source Files\GameLogicFiles\Unit States</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

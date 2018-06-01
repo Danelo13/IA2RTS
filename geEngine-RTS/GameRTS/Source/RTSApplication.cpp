@@ -340,9 +340,37 @@ mainMenu(RTSApplication* pApp) {
 
   }
   ImGui::End();
+  
+  ImGui::ShowDemoWindow();
+
+  ImGui::Begin("Resources Window"); //,nullptr, ImGuiWindowFlags_NoInputs);
+  {
+      
+  }
+  ImGui::End();
+
+  ImGui::Begin("Unit Window");
+  {
+  
+  }
+  ImGui::End();
+
+  ImGui::Begin("Action Window"); 
+  {
+    
+  }
+  ImGui::End();
+
+  ImGui::Begin("Map Window");
+  {
+
+  }
+  ImGui::End();
+
+
 
   if (g_EditorOpen) {
-    ImGui::Begin("Testing Window", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
+    ImGui::Begin("Edit Window", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
     {
       if (ImGui::Button("Mi Boton magico")) {
 
