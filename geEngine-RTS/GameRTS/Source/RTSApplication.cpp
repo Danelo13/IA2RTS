@@ -279,6 +279,8 @@ loadMapFromFile(RTSApplication* pApp) {
 
 ImVec4 MyColor = ImVec4(0.f, 0.f, 1.f, 1.f);
 bool g_EditorOpen = false;
+bool g_EventWindow = false;
+
 
 void
 mainMenu(RTSApplication* pApp) {
@@ -345,7 +347,15 @@ mainMenu(RTSApplication* pApp) {
 
   ImGui::Begin("Resources Window"); //,nullptr, ImGuiWindowFlags_NoInputs);
   {
-      
+  /*
+    ImGui::InputInt(" Wood ", &wood);
+    ImGui::InputInt(" Stone ", &stone);
+  */
+
+    if (ImGui::GetIO().DeltaTime == 60 ) {
+      // if (happy <= 0)
+        ImGui::OpenPopup("Sad town");
+    }
   }
   ImGui::End();
 
@@ -367,6 +377,9 @@ mainMenu(RTSApplication* pApp) {
   }
   ImGui::End();
 
+  if (g_EventWindow) {
+ 
+  }
 
 
   if (g_EditorOpen) {
@@ -377,6 +390,7 @@ mainMenu(RTSApplication* pApp) {
         geEngineSDK::FileDataStream fds("Mapa.map", ACCESS_MODE::kWRITE);
         pApp->getWorld()->getTiledMap()->writeMapGridToFile(fds);
         fds.close();
+
       }
     }
     ImGui::End();

@@ -1,15 +1,62 @@
+
 #pragma once
-#include "Unit.h"
+#include <SFML/Graphics.hpp>
 
-class Input;
+class CUnit;
 
-class CUnitState
+class UnitState
 {
 public:
-	CUnitState();
-	~CUnitState();
+  virtual ~UnitState() {}
+  virtual void handleInput(CUnit& unit, sf::Mouse input) {}
+  virtual void update() {}
 
-	virtual void handleInput(CUnit& unit, Input* input) {}
-	virtual void update(CUnit& unit) {}
 };
 
+class MovingState : public UnitState
+{
+  virtual void handleInput() {}
+  virtual void update() {}
+};
+
+class IdleState : public UnitState
+{
+  virtual void handleInput() {}
+  virtual void update() {}
+
+};
+
+class EscapeState : public UnitState
+{
+  virtual void handleInput() {}
+  virtual void update() {}
+
+};
+
+class BuildingState : public UnitState
+{
+  virtual void handleInput() {}
+  virtual void update() {}
+
+};
+
+class DeadState : public UnitState
+{
+  virtual void handleInput() {}
+  virtual void update() {}
+
+};
+
+class FightingState : public UnitState
+{
+  virtual void handleInput() {}
+  virtual void update() {}
+
+};
+
+class GatheringState : public UnitState
+{
+  virtual void handleInput() {}
+  virtual void update() {}
+
+};
