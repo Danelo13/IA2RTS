@@ -2,11 +2,7 @@
 
 
 
-CUnitState::CUnitState()
-{
-}
+CUnitState::CUnitState() {}
 
 
-CUnitState::~CUnitState()
-{
-}
+CUnitState::~CUnitState() {}

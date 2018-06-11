@@ -10,21 +10,14 @@ public:
   CUnit();
   ~CUnit();
 
-  virtual void handleInput(sf::Mouse input) {
-    m_state->handleInput(*this, input);
-  }
-  virtual void update() {
-    m_state->update();
-  }
+  virtual void handleInput(sf::Mouse input);
+  
+  virtual void update();
 
 private:
   float m_HitPoints;
   float m_cost;
-  UnitState *m_state;
+  CUnitState *m_state;
 
 
 };
-
-CUnit::CUnit() {}
-
-CUnit::~CUnit() {}

@@ -2,11 +2,14 @@
 
 
 
-CUnit::CUnit()
-{
+CUnit::CUnit() {}
+
+CUnit::~CUnit() {}
+
+void CUnit::handleInput(sf::Mouse input) {
+  m_state->handleInput(*this, input);
 }
 
-
-CUnit::~CUnit()
-{
+void CUnit::update() {
+  m_state->update();
 }

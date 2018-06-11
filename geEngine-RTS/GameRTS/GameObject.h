@@ -9,6 +9,8 @@ using namespace geEngineSDK;
 class CGameObject
 {
 public:
+  CGameObject();
+  ~CGameObject();
   virtual void
     handleimput() = 0;
 

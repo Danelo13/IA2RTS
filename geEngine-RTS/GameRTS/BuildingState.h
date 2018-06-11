@@ -1,10 +1,11 @@
 #pragma once
 #include "UnitState.h"
-class CIdleState : public CUnitState
+class CBuildingState : public CUnitState
 {
 public:
-  CIdleState();
-  ~CIdleState();
+  CBuildingState();
+  ~CBuildingState();
   virtual void handleInput();
   virtual void update();
 };
+

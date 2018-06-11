@@ -93,7 +93,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>./Include;$(SolutionDir)geUtility/Include/;$(DEVLIBS)SFML/include/;$(DEVLIBS)imgui/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./Include;$(SolutionDir)geUtility/Include/;$(DEVLIBS)SFML/include/;$(DEVLIBS)imgui/;$(DEVLIBS)GoogleTest\googletest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <OpenMPSupport>true</OpenMPSupport>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -111,7 +111,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>./Include;$(SolutionDir)geUtility/Include/;$(DEVLIBS)SFML/include/;$(DEVLIBS)imgui/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./Include;$(SolutionDir)geUtility/Include/;$(DEVLIBS)SFML/include/;$(DEVLIBS)imgui/;$(DEVLIBS)GoogleTest\googletest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <OpenMPSupport>true</OpenMPSupport>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -131,7 +131,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>./Include;$(SolutionDir)geUtility/Include/;$(DEVLIBS)SFML/include/;$(DEVLIBS)imgui/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./Include;$(SolutionDir)geUtility/Include/;$(DEVLIBS)SFML/include/;$(DEVLIBS)imgui/;$(DEVLIBS)GoogleTest\googletest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <OpenMPSupport>true</OpenMPSupport>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -153,7 +153,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>./Include;$(SolutionDir)geUtility/Include/;$(DEVLIBS)SFML/include/;$(DEVLIBS)imgui/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./Include;$(SolutionDir)geUtility/Include/;$(DEVLIBS)SFML/include/;$(DEVLIBS)imgui/;$(DEVLIBS)GoogleTest\googletest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <OpenMPSupport>true</OpenMPSupport>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -169,9 +169,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Building.cpp" />
+    <ClCompile Include="BuildingState.cpp" />
+    <ClCompile Include="DeadState.cpp" />
+    <ClCompile Include="EscapeState.cpp" />
+    <ClCompile Include="FightingState.cpp" />
+    <ClCompile Include="GatheringState.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="MOV.cpp" />
+    <ClCompile Include="MovingState.cpp" />
     <ClCompile Include="Source\Externals\imgui-SFML.cpp" />
     <ClCompile Include="Source\Externals\imgui.cpp" />
     <ClCompile Include="Source\Externals\imgui_demo.cpp" />
@@ -188,6 +194,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Building.h" />
+    <ClInclude Include="BuildingState.h" />
+    <ClInclude Include="DeadState.h" />
+    <ClInclude Include="EscapeState.h" />
+    <ClInclude Include="FightingState.h" />
+    <ClInclude Include="GatheringState.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Include\RTSApplication.h" />
@@ -197,6 +208,7 @@
     <ClInclude Include="Include\RTSUnitType.h" />
     <ClInclude Include="Include\RTSWorld.h" />
     <ClInclude Include="MOV.h" />
+    <ClInclude Include="MovingState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="UnitState.h" />

@@ -74,6 +74,24 @@
     <ClCompile Include="IdleState.cpp">
       <Filter>Source Files\GameLogicFiles\Unit States</Filter>
     </ClCompile>
+    <ClCompile Include="MovingState.cpp">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClCompile>
+    <ClCompile Include="EscapeState.cpp">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingState.cpp">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClCompile>
+    <ClCompile Include="DeadState.cpp">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClCompile>
+    <ClCompile Include="FightingState.cpp">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClCompile>
+    <ClCompile Include="GatheringState.cpp">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\RTSUnitType.h">
@@ -114,6 +132,24 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MovingState.h">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClInclude>
+    <ClInclude Include="EscapeState.h">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingState.h">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClInclude>
+    <ClInclude Include="DeadState.h">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClInclude>
+    <ClInclude Include="FightingState.h">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
+    </ClInclude>
+    <ClInclude Include="GatheringState.h">
+      <Filter>Source Files\GameLogicFiles\Unit States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
