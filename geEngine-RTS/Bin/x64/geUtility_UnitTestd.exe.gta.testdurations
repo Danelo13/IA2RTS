@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GtaTestDurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Executable>C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Git clones\IA 2\IA2RTS\geEngine-RTS\Bin\x64\geUtility_UnitTestd.exe</Executable>
+  <TestDurations>
+    <TestDuration Test="geUtility.Math_Float_Precision" Duration="1" />
+    <TestDuration Test="geUtility.Math_Intersections" Duration="1" />
+    <TestDuration Test="geUtility.Math_Bit_Checks" Duration="1" />
+    <TestDuration Test="geUtility.Platform_Utilities" Duration="1" />
+    <TestDuration Test="geUtility.Basic_Type_Size" Duration="1" />
+    <TestDuration Test="geUtility.String_Basic" Duration="1" />
+    <TestDuration Test="geUtility.Math_Vector2I" Duration="1" />
+    <TestDuration Test="geUtility.String_Parser" Duration="20" />
+    <TestDuration Test="geUtility.Math_Trigonometric" Duration="1" />
+    <TestDuration Test="geUtility.String_Path" Duration="1" />
+    <TestDuration Test="geUtility.Matrix4_LookAt" Duration="1" />
+    <TestDuration Test="geUtility.Math_Basic" Duration="1" />
+    <TestDuration Test="geUtility.Tetrahedron_Utilities" Duration="1" />
+    <TestDuration Test="geUtility.Math_Vector2Half" Duration="1" />
+    <TestDuration Test="geUtility.FrameAllocTest" Duration="7" />
+    <TestDuration Test="geUtility.Compression" Duration="2" />
+    <TestDuration Test="geUtility.Math_Fast" Duration="1" />
+    <TestDuration Test="geUtility.Matrix4_Perspective" Duration="1" />
+  </TestDurations>
+</GtaTestDurations>

@@ -3,7 +3,6 @@
 #include "GameObject.h"
 #include "UnitState.h"
 #include <SFML/Graphics.hpp>
-#include <sqlite3.h>
 
 class CUnit : public CGameObject
 {
@@ -17,7 +16,6 @@ public:
 
 private:
   float m_hitPoints;
-
   float m_cost;
   CUnitState *m_state;
 
